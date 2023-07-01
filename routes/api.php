@@ -28,6 +28,17 @@ Route::resource('products', ProductController::class);
 Route::resource('tags', TagsController::class);
 Route::resource('categories', CategoriesController::class);
 
+Route::prefix('cart')->group(function(){
+    Route::get('list', function(){
+
+    }); 
+
+    Route::get('item', function(){
+
+    }); 
+
+
+});
 
 Route::prefix('image/')->group(function(){
 
