@@ -7,6 +7,16 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CartResource extends JsonResource
 {
+
+   /**
+     * The "data" wrapper that should be applied.
+     *
+     * @var string|null
+     */
+    public static $wrap = 'cart';
+
+
+
     /**
      * Transform the resource into an array.
      *
@@ -14,6 +24,12 @@ class CartResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'item_id' => $this->rowId,
+            "name" => $this->name,
+            "qty" => $this->qty,
+            "price" => $this->price,
+            "weight" => $this->weight
+        ]; 
     }
 }

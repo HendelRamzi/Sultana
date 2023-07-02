@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TagsController;
 use App\Models\Temp_image;
@@ -28,34 +28,25 @@ Route::resource('products', ProductController::class);
 Route::resource('tags', TagsController::class);
 Route::resource('categories', CategoriesController::class);
 
-Route::prefix('cart')->group(function(){
-    Route::get('list', function(){
-
-    }); 
-
-    Route::get('item', function(){
-
-    }); 
-
-
-});
+Route::resource('orders', OrderController::class); 
 
 Route::prefix('image/')->group(function(){
 
     Route::post('process', function(Request $request){
+        // dd($request->all()); 
         if($request->file('gallery')){
             
-            $image  = $request['gallery'][0]; 
+            $image  = $request['gallery'];  
 
             // Create the folder
             $folder = uniqid();
 
             // Store in the filesystem.
-            Storage::disk('local')->putFile("/temp//".$folder, $image);
+            Storage::disk('public')->putFile("/temp//".$folder, $image);
             // Store in the database.
             Temp_image::create([
                 'folder' => $folder,
-                "image" => $image
+                "image" => $image->hashName()
             ]);
 
             return $folder;

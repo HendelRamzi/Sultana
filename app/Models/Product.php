@@ -30,6 +30,8 @@ class Product extends Model
         return $this->hasMany(Gallery::class); 
     }
 
-
+    public function orders(){
+        return $this->hasMany(Order::class); 
+    }
 
 }

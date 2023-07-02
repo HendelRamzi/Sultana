@@ -18,7 +18,7 @@ class StoreProductRequest extends FormRequest
     public function prepareForValidation(){
         // Generate the code before validation
         $this->merge([
-            "code" => uniqid("product_")
+            "code" => uniqid("product_"),
         ]);
 
        /**
@@ -40,9 +40,9 @@ class StoreProductRequest extends FormRequest
             "qty" => "required",
             "short_desc" => "required|max:255",
             "long_desc" => "required",
-            "published" => "required|boolean",
             "tags" => "required",
             "categories" => "required",
+            "images" => "required"
         ];
     }
 }
