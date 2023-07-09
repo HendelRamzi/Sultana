@@ -7,6 +7,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TagsController;
 use App\Models\Temp_image;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::resource('cart', CartController::class); 
+Route::get('checkout', [CartController::class, "checkout"]); 
 
 
 Auth::routes();
@@ -34,7 +37,7 @@ Route::resource('categories', CategoriesController::class);
 
 Route::resource('orders', OrderController::class); 
 
-Route::prefix('image/')->group(function(){
+Route::prefix('image')->group(function(){
 
     Route::post('process', function(Request $request){
         // dd($request->all()); 

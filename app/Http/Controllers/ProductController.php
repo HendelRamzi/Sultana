@@ -25,7 +25,7 @@ class ProductController extends Controller
         try{
             // Get all the model
             $products = Product::with(['tags', "categories"])->get();
-            return ProductResource::collection($products);
+            return view('website.product.index'); 
 
         }catch(\Exception $e){
             return response()->json([
@@ -173,12 +173,12 @@ class ProductController extends Controller
     {
         try{
 
-            $product =Product::with(['tags', "categories"])->find($id) ; 
-            if(is_null($product)){
-                throw new ModelNotFoundException() ;
-            }
+            // $product =Product::with(['tags', "categories"])->find($id) ; 
+            // if(is_null($product)){
+            //     throw new ModelNotFoundException() ;
+            // }
 
-            return (new ProductResource($product));
+            return view('website.product.details'); 
         }catch(ModelNotFoundException $error){
             return response()->json([
                 'error' => "Product could not be displayed",

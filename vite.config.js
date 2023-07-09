@@ -6,7 +6,12 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.scss',
-                'resources/js/app.js',
+                "resources/css/cart-page.css",
+                "resources/css/checkout-page.css", 
+                "resources/css/product/style.css", 
+                "resources/css/product/list.css", 
+                "resources/css/home.css", 
+                'resources/js/index.jsx',
             ],
             refresh: true,
         }),

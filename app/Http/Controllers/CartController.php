@@ -15,9 +15,16 @@ class CartController extends Controller
     public function index()
     {
         // return a collection 
-        $items = Cart::content(); 
-        return CartResource::collection($items)
-        ->response(); 
+        // Cart::add([
+        //     'id' => uniqid(), 
+        //     "name" =>"Jus",
+        //     "qty" => 2,
+        //     "price" => 1.99,
+        //     "weight" => "150"
+        // ]); 
+        // return"nice"; 
+        // $items = Cart::content(); 
+        return view('website.cart.index'); 
     }
 
     /**
@@ -46,56 +53,11 @@ class CartController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $cart)
-    {
-        try{
 
-            Cart::update($request['data']['item'], [
-                "name" => $request['data']['name'],
-                "qty" => $request['data']['qty'],
-                "price" => $request['data']['price'],
-                "weight" => $request['data']['weight']
-            ]);
 
-            return response()->json([
-                'success' => "The item was updated in the cart"
-            ]);
-
-        }catch(InvalidRowIDException $error){
-            return response()->json([
-                'error' => "The product is not in the Cart"
-            ]);
-        }catch(\Exception $error){
-            return response()->json([
-                "error" => "Could not update the item in the cart"
-            ]);
-        }
-        
+    public function checkout(){
+        return view("website.cart.checkout"); 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $cart)
-    {
-        try{
-            Cart::remove($cart);
 
-            return response()->json([
-                'success' => "Product removed from the cart."
-            ]);
-
-        }catch(InvalidRowIDException $error){
-            return response()->json([
-                'error' => "The product is not in the Cart"
-            ]);
-        }catch(\Exception $e){
-            return response()->json([
-                'error' => "Could not delete the product from the cart."
-            ]);
-        }
-    }
 }
