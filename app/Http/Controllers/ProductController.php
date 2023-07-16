@@ -169,7 +169,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $product)
     {
         try{
 
@@ -178,7 +178,10 @@ class ProductController extends Controller
             //     throw new ModelNotFoundException() ;
             // }
 
-            return view('website.product.details'); 
+            $product = Product::find($product); 
+            return view('website.product.details', [
+                'product' => $product
+            ]); 
         }catch(ModelNotFoundException $error){
             return response()->json([
                 'error' => "Product could not be displayed",
@@ -317,39 +320,95 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $product)
     {
         try{
 
-            $product = Product::find($id);
+            $product = Product::find($product);
 
             if(is_null($product)){
                 throw new ModelNotFoundException() ;
             }
 
+            // delete from categories
+            foreach($product->categories as $cat){
+                $cat->pivot->delete(); 
+            }
+
+            // Delete the images
+            foreach($product->gallery as $image){
+                // Delete from the public folder
+                Storage::disk('public')->deleteDirectory("products/gallery/".$image->folder);
+                $image->delete(); 
+            }
+
+            // delete thumbnail from public folder
+            Storage::disk('public')->deleteDirectory("products/thumbnail".$product->folder);
+
+
+            // delete form db   
+            $product->delete(); 
+
+            // Return to the list products page
+            session()->flash('success', "Le status a bien été modifier" );
+            return redirect()->route('admin.products.list');
+        
+
+
+
+        }catch(ModelNotFoundException $error){
+            session()->flash("error" , "Produit non trouvé"); 
+            return redirect()->back(); 
+        }catch(\Exception $e){
+            session()->flash("error" , "erreur lors de la suppression du produit"); 
+            return redirect()->back(); 
+        }
+    }
+
+
+
+
+
+     /**
+     * Remove the specified resource from storage.
+     */
+    public function deleteProducts(string $product)
+    {
+        try{
+
+            $product = Product::find($product);
+
+            if(is_null($product)){
+                throw new ModelNotFoundException() ;
+            }
+
+            // delete from categories
+            foreach($product->categories as $cat){
+                $cat->pivot->delete(); 
+            }
+
+            // Delete the images
+            foreach($product->gallery as $image){
+                // Delete from the public folder
+                Storage::disk('public')->deleteDirectory("products/gallery/".$image->folder);
+                $image->delete(); 
+            }
+
+            // delete thumbnail from public folder
+            Storage::disk('public')->deleteDirectory("products/thumbnail".$product->folder);
+
+
+            // delete form db   
             $product->delete(); 
 
 
-            /**
-             * TODO Delete the tags
-             * TODO Delete the categories
-             * TODO Delete the images
-             */
-
-            return response()->json([
-                "message" => "The product was deleted successufly",
-            ], 202);
 
         }catch(ModelNotFoundException $error){
-            return response()->json([
-                'error' => "Product could not be deleted",
-                "message" => "The product could not be found",
-            ],500);
+            session()->flash("error" , "Produit non trouvé"); 
+            return redirect()->back(); 
         }catch(\Exception $e){
-            return response()->json([
-                'error' => "Product could not be deleted",
-                "message" => "A problem occured when deleting the product. Please contact the support team",
-            ], 500);
+            session()->flash("error" , "erreur lors de la suppression du produit"); 
+            return redirect()->back(); 
         }
     }
 }

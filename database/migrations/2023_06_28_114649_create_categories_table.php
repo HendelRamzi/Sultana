@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('desc');
-            $table->boolean('active');
-            $table->string('icon')->nullable();
-            $table->string('folder')->nullable();
+            $table->string('collection_id');
             $table->timestamps();
         });
     }

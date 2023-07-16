@@ -10,6 +10,7 @@ use Livewire\Component;
 class CartPage extends Component
 {
     public  $products ; 
+    public $thumbnail ; 
 
 
     /**
@@ -40,6 +41,7 @@ class CartPage extends Component
     public function deleteItem($i){
         unset($this->products[$i]);
         Cart::remove($i); 
+        redirect()->route('cart.index'); 
     }
 
 
@@ -57,6 +59,13 @@ class CartPage extends Component
         }
 
         return $sum ; 
+    }
+
+    
+
+    public function goToCheckout(){
+        return redirect()->route('checkout');
+        
     }
 
 

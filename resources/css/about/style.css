@@ -1,0 +1,211 @@
+@font-face {
+    font-family: "cera";
+    src: url("fonts/Cera-font/CeraRoundProDEMO-Regular.otf")
+}
+
+body{
+    background-color: white !important ;
+}
+
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+
+    padding: 1rem 1rem;
+
+    z-index: 100;
+    background-color: white !important ; 
+    border: none !important;
+    border-bottom: 1px solid #a09e9e !important;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+
+
+.bg-img{
+    position: absolute;
+
+    bottom: 0;
+    left: -10%;
+    top: 60%;
+    transform: rotate(-70deg);
+}
+
+
+.about-content h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+
+.about-content p {
+    max-width: 50ch;
+    margin-bottom: 20px;
+}
+
+.ab-about_image::before {
+    content: ' ';
+    position: absolute;
+    background-color: #f68773;
+    left: 20px;
+    bottom: 16px;
+    width: 380px;
+    height: 500px;
+    z-index: 2;
+
+}
+
+.ab-about_image{
+    padding-top: 80px;
+    position: relative;
+    z-index: 9;
+}
+
+.ab-about_image img{
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    max-width: 380px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.how_section{
+    background-color: #cac9c9;
+}
+.how_content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.how_content p{
+    max-width: 60ch;
+    text-align: center  ;
+    margin-bottom: 50px;
+
+}
+
+
+.service_content{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service_content h3 {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service_content p {
+    font-size: 15px;
+    max-width: 30ch;
+    text-align: center;
+
+}
+
+
+.divider_service{
+    height: 1px;
+    width: 10px;
+    background-color: black;
+    transform: rotate(90deg);
+}
+
+
+
+.valeur_content h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.valeur_content p{
+    max-width: 50ch;
+    font-size: 1rem;
+    margin-bottom: 20px;
+
+}
+
+.valeur-img {
+    position: absolute;
+    background-color: white;
+    top: -50px;
+    padding: 1.5rem;
+}
+
+.valeur-img img {
+    filter: brightness(.9);
+}
+
+
+.cta__section{
+    background-color: #ECEDEA;
+    padding: 100px 0px;
+}
+
+.cta_content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cta_content p {
+    font-size: 1.25rem;
+    max-width: 50ch;
+    text-align: center;
+}
+
+
+.button {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	padding: 8px 16px;
+	font-size: 0.875rem;
+	color: #FFF;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: none;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+}
+
+.button:hover{
+	background-color: #f68773;
+}
+
+
+.button-black { background-color: #111; }
+
+.button.outline{
+	background: none;
+	color: black;
+	border: 1px solid black;
+}
+
+.button.outline:hover{
+	color: white;
+	border-color: #f68773 ;
+    background-color: #f68773;
+}

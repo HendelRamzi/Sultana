@@ -173,6 +173,7 @@ small { font-family: 'Lato', sans-serif; }
 		display: block;
 		width: 64px;
 		height: 64px;
+		object-fit: contain;
 		border: 2px solid #EEE;
 	}
 

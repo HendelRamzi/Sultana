@@ -4,17 +4,17 @@
     <section id="page-title">
 
         <div class="container">
-            <h1>Cart</h1>
+            <h1>Panier</h1>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                <li class="breadcrumb-item"><a href="{{route('website.home')}}">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{{route('products.index')}}">Nos produits</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Panier</li>
             </ol>
         </div>
 
     </section><!-- #page-title end -->
 
-
+    
 
     <!-- Content
     ============================================= -->
@@ -46,13 +46,13 @@
                                         </a>
                                     </td>
                                     <td class="cart-product-thumbnail">
-                                        <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress"></a>
+                                        <a href="{{route('products.show', ['product' => $product['id']])}}"><img width="64" height="64" src="{{asset($product['options']['imageURL'])}}" alt="Pink Printed Dress"></a>
                                     </td>
                                     <td class="cart-product-name">
-                                        <a href="#"> {{$product['name']}} </a>
+                                        <a href="{{route('products.show', ['product' => $product['id']])}}"> {{$product['name']}} </a>
                                     </td>
                                     <td class="cart-product-price">
-                                        <span class="amount">{{ $product['price'] }}</span>
+                                        <span class="amount">{{ $product['price'] }} da</span>
                                     </td>
                                     <td class="cart-product-quantity">
                                         <div class="quantity">
@@ -62,7 +62,7 @@
                                         </div>
                                     </td>
                                     <td class="cart-product-subtotal">
-                                        <span class="amount">{{ $this->totalProduit($product['qty'], $product['price']) }}</span>
+                                        <span class="amount">{{ $this->totalProduit($product['qty'], $product['price']) }} da</span>
                                     </td>
                                 </tr>
                             @endforeach
@@ -70,7 +70,7 @@
                                 <td colspan="6" style="border: none !important">
                                     <div class="row">
                                         <div class="col-lg-8 col-8 p-0">
-                                            <a href="#" class="button-secondary  mt-2 ">Ajouter produits</a>
+                                            <a href="{{route('products.index')}}" class="button-secondary  mt-2 ">Ajouter produits</a>
                                         </div>
                                     </div>
                                 </td>
@@ -82,40 +82,24 @@
 
                 <div class="row col-mb-30">
                     <div class="col-lg-6 ms-auto">
-                        <h4>Cart Totals</h4>
+                        <h4>Total du panier</h4>
                         <div class="table-responsive">
                             <table class="table cart">
                                 <tbody>
-                                    <tr class="cart_item">
-                                        <td class="cart-product-name">
-                                            <strong>Cart Subtotal</strong>
-                                        </td>
-
-                                        <td class="cart-product-name">
-                                            <span class="amount"> {{$this->totalCount()}} </span>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="cart-product-name">
-                                            <strong>Shipping</strong>
-                                        </td>
-
-                                        <td class="cart-product-name">
-                                            <span class="amount">Free Delivery</span>
-                                        </td>
-                                    </tr>
                                     <tr class="cart_item">
                                         <td class="cart-product-name">
                                             <strong>Total</strong>
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount color lead"><strong> {{$this->totalCount()}} </strong></span>
+                                            <span class="amount color lead"><strong> {{$this->totalCount()}} da </strong></span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
                                         <td class="cart-product-name" style="border: none !important; ">
-                                            <a href="#" class="button button-3d button-black m-0" style="color: white !important;"> Passer à la caisse </a>
+                                            @if(count($products) >= 1)
+                                                <a wire:click="goToCheckout" class="button button-3d button-black m-0" style="color: white !important;"> Passer à la caisse </a>
+                                            @endif
                                         </td>
                                     </tr>
                                     <tr>

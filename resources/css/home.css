@@ -69,37 +69,6 @@ BANNER SECTION STYLES
 */
 
 
-
-
-
-
-
-.sticky-header {
-    position: sticky;
-    top: 0;
-
-    padding: .5rem 1rem;
-
-    z-index: 100;
-    background-color: #E4E4E4 ; 
-    border-top: 1px solid #222 ;
-    border-bottom: 1px solid #222 ;
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  .sticky-header.scrolled {
-    background-color: white;
-    border: none;
-  }
-
-
-  .nav-link{
-    font-size: .75rem !important;
-    font-weight: bold !important;
-    text-transform: uppercase !important;
-  }
-
-
 .home__banner{
     border-bottom: #222 solid 1px;
 }
@@ -118,6 +87,7 @@ BANNER SECTION STYLES
     padding: 0px;
     margin: 0 !important;
     max-width: 400px; 
+    aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
 }
@@ -148,16 +118,18 @@ BANNER SECTION STYLES
     text-align: center;
 }
 
-.banner_content button {
+.banner_content a {
+    text-decoration: none;
     background: none;
     border: none;
+    color: black;
     border-bottom: 1px solid #111;
     font-weight: bold;
 }
 
 
 .familly-products{
-    padding: 170px 0px 50px 0px;
+    padding: 170px 0px 30px 0px;
 }
 
 .thumbnel{
@@ -170,14 +142,15 @@ BANNER SECTION STYLES
     justify-content: start;
     align-items: end;
     gap: 1rem;
-
+    padding: 2rem;
     position: relative;
 }
 .small-thumb img{
     display: block;
     width: 100%;
-    max-width: 300px;
-    object-fit: cover;
+    max-width: 300px !important;
+    aspect-ratio: 1/1;
+    object-fit: contain !important;
     object-position: center;
     transform: scale(1.0);
     transition: all .3s ease-in-out;
@@ -256,14 +229,17 @@ BANNER SECTION STYLES
 }
 
 
-
+.thumbnel{
+    padding: 2rem;
+}
 
 
 
 .thumbnel img {
     width: 100%;
     max-width: 570px;
-    object-fit: cover;
+    aspect-ratio: 1/1;
+    object-fit: contain !important;
     object-position: center;
 
     outline: #c4c4c4 solid 1px;
@@ -334,6 +310,8 @@ BANNER SECTION STYLES
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    background-color: #eee;
+    padding: 2rem;
 }
 
 .image-product{
@@ -344,13 +322,18 @@ BANNER SECTION STYLES
 	display: block;
 	width: 100%;
 	max-width: 270px;
-	object-fit: cover;
+    aspect-ratio: 1/1;
+	object-fit: contain;
 	object-position: center;
 }
 
 
 .image-product .image-hidden:hover {
 	opacity: 1;
+}
+
+.image-hidden:hover #a {
+    opacity: 0;
 }
 
 .image-product .image-hidden {
@@ -409,7 +392,9 @@ BANNER SECTION STYLES
     padding-top: 50px;
 }
 
-.products_footer button {
+.products_footer a {
+    text-decoration: none;
+    
     background: none;
     border: none;
     font-size: 12px;
@@ -419,11 +404,11 @@ BANNER SECTION STYLES
     border-bottom: 1px solid black;
     color: black;
     border-color: black;
-
+    cursor: pointer;
     transition: all .5s ease-in-out;
 }
 
-.products_footer button:hover{
+.products_footer a:hover{
     color: #f68773 ;
     border-color: #f68773;
 }
@@ -490,61 +475,6 @@ input:focus{
     border-bottom: 1px solid black;
 }
 
-.instagram_overlay{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    color: white;
-    background-color: #1111116b;
-    z-index: 20;
-    transition: all .4s ease-in-out;
-}
-
-
-.instagram_overlay svg {
-    cursor: pointer;
-    transform: scale(1.0);
-    transition: all .2s ease-in-out;
-}
-
-.instagram_overlay svg:hover{
-    transform: scale(1.1);
-}
-
-.instagram_overlay:hover  {
-    opacity: 1;
-}
-
-
-.footer_section{
-    padding-top: 100px ;
-}
-
-.footer_section h3{
-    font-size: 14px;
-    color: black;
-    font-weight: 600;
-    margin-bottom: 40px;
-}
-
-.footer_section li {
-    font-size: 1rem;
-    padding: 5px 0px;
-    list-style: none;
-    color: #777;
-}
-
-.footer_section li:hover {
-    color: black;
-    cursor: pointer;
-}
 
 
 .button {
@@ -581,3 +511,47 @@ input:focus{
 	border-color: #f68773 ;
     background-color: #f68773;
 }
+
+
+
+
+.how_section{
+    background-color: #f5f5f5;
+}
+.how_content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.how_content p{
+    max-width: 60ch;
+    text-align: center  ;
+    margin-bottom: 50px;
+
+}
+
+
+.service_content{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service_content h3 {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service_content p {
+    font-size: 15px;
+    max-width: 30ch;
+    text-align: center;
+
+}
+

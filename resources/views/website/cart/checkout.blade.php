@@ -19,6 +19,6 @@
 @endsection
 
 
-@push('js')
+@push('livewire-js')
 @livewireScripts
 @endpush

@@ -1,0 +1,66 @@
+.instagram_overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    color: white;
+    background-color: #1111116b;
+    z-index: 20;
+    transition: all .4s ease-in-out;
+}
+
+
+.instagram_overlay svg {
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: all .2s ease-in-out;
+}
+
+.instagram_overlay svg:hover{
+    transform: scale(1.1);
+}
+
+.instagram_overlay:hover  {
+    opacity: 1;
+}
+
+
+.footer_section{
+    padding-top: 100px ;
+}
+
+.footer_section h3{
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.footer_section li {
+    font-size: 1rem;
+    padding: 5px 0px;
+    list-style: none;
+    color: #777;
+}
+
+.footer_section li a {
+    text-decoration: none;
+    color: #777;
+}
+
+.footer_section li:hover, .footer_section li:hover a {
+    color: black;
+    cursor: pointer;
+}
+
+
+
+.follow-us a {
+    color: black;
+}

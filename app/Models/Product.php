@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -11,7 +12,7 @@ class Product extends Model
 
     protected $fillable = [
         'name', "code", "short_desc", "long_desc", "price",
-        "qty", "published"
+        "qty", "published", "folder", "thumb"
     ];
 
 
@@ -26,12 +27,22 @@ class Product extends Model
 
     }
 
+
+    public function collection(){
+        return $this->belongsTo(Collection::class); 
+    }
+
     public function gallery(){
         return $this->hasMany(Gallery::class); 
     }
 
     public function orders(){
-        return $this->hasMany(Order::class); 
+        return $this->belongsToMany(Order::class); 
+    }
+
+
+    public function avis(){
+        return $this->HasMany(Commentaire::class); 
     }
 
 }

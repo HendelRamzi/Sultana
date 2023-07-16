@@ -76,6 +76,36 @@ small { font-family: 'Lato', sans-serif; }
 
 
 
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+
+    padding: .5rem 1rem;
+
+    z-index: 100;
+    background-color: white ; 
+    border-top: 1px solid #222 ;
+    border-bottom: 1px solid #222 ;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .sticky-header.scrolled {
+    background-color: white;
+    border: none;
+  }
+
+
+  .nav-link{
+    font-size: .75rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+  }
+
+
+
+
+
 .button.outline{
 	background: none;
 	color: black;
@@ -400,12 +430,14 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
     max-width: 100%;
     display: flex;
     justify-content: center;
+	background-color: #F4F4F4;
 }
 
 .mySwiper2 .swiper-slide img {
     display: block;
     width: 100%;
     max-width: 555px;
+	aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
 }
@@ -428,11 +460,17 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
   .mySwiper .swiper-slide img {
     display: block;
     width: 100%;
-    max-width: 128px;
-    object-fit: cover;
+    max-width: 400px;
+	aspect-ratio: 1/1;
+    object-fit: contain !important;
     object-position: center;
     /* opacity: 0.4; */
   }
+
+  #xxx{
+	object-fit: contain !important;
+  }
+
 
   .mySwiper .swiper-slide-thumb-active {
     opacity: 1;
@@ -572,13 +610,15 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 
 .image-product{
 	overflow: hidden;
+	padding: 2rem;
 }
 
 .image-product img {
 	display: block;
 	width: 100%;
 	max-width: 270px;
-	object-fit: cover;
+	aspect-ratio: 1/1;
+	object-fit: contain;
 	object-position: center;
 }
 
@@ -694,6 +734,26 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 
 
 }
+
+.img_description_content{
+	width: 100%;
+	background-color: #F4F4F4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}
+
+.img_description_content img {
+	display: block;
+    width: 100%;
+    max-width: 555px;
+	aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center;
+}
+
+
 
 
 @media (max-width: 780px) {

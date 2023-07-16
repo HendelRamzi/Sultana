@@ -56,6 +56,7 @@ class CartController extends Controller
 
 
     public function checkout(){
+        
         return view("website.cart.checkout"); 
     }
 

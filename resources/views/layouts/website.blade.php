@@ -9,6 +9,16 @@
     <title>
        Sultana - @stack('page-title')
     </title>
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    {{-- @livewireStyles --}}
+
 
     @stack('custom-css')
 
@@ -17,9 +27,16 @@
 </head>
 <body>
 
+
+    {{-- Include de header --}}
+    @stack('header')
+
     @yield('content')
 
 
-    @stack('js')
+    @stack('livewire-js')
+    @stack('custom-js')
+
+    {{-- @livewireScripts --}}
 </body>
 </html>

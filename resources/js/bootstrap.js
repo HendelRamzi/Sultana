@@ -1,6 +1,10 @@
 import 'bootstrap';
 
 
+// Load Jquery
+import $ from 'jquery';
+window.$ = $;
+
 
 
 // Load other files
