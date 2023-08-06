@@ -52,9 +52,30 @@
                                 </td>
                                 <td>{{ $order->client->nom." ".$order->client->prenom }}</td>
                                 <td>{{ $order->client->phone}}</td>
-                                @if($order->status->name == "placed")
+                                @if($order->status->name == "placer")
                                     <td>  
                                         <span class="badge bg-info text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "en cours")
+                                    <td>  
+                                        <span class="badge bg-primary text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "retour")
+                                    <td>  
+                                        <span class="badge bg-danger text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "terminer")
+                                    <td>  
+                                        <span class="badge bg-success text-dark">
                                             {{ $order->status->name }}
                                         </span>
                                     </td>

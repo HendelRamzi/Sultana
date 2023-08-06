@@ -58,11 +58,15 @@
                     <div class="row gx-4" >
 
                         @foreach ($products as $product)
-                        <div class=" product col-6 col-md-6 col-lg-4" data-aos="fade-up"  >
+                        <div class=" product col-12 col-md-6 col-lg-4" data-aos="fade-up"  >
                             <div class="d-flex flex-column gap-2 " style="position: relative">
                                 <div class="image-product">
                                     <img class="image-top img-fuild" src="{{asset('storage/products/gallery/'. $product->gallery[0]->folder."/".$product->gallery[0]->image)}}" alt="">
-                                    <img class="image-hidden " src="{{asset('storage/products/gallery/'. $product->gallery[1]->folder."/".$product->gallery[1]->image)}}" alt="">
+                                    @if (count($product->gallery) > 1)
+                                        <img class="image-hidden " src="{{asset('storage/products/gallery/'. $product->gallery[1]->folder."/".$product->gallery[1]->image)}}" alt="">    
+                                    @else
+                                        <img class="image-hidden " src="{{asset('storage/products/gallery/'. $product->gallery[0]->folder."/".$product->gallery[0]->image)}}" alt="">
+                                    @endif
                                     <div class="product__actions">
                                         <a style="cursor: pointer" wire:click="addToCart({{$product}})">Add to cart</a>
                                     </div>

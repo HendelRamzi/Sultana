@@ -24,14 +24,12 @@ class ProductController extends Controller
     {
         try{
             // Get all the model
-            $products = Product::with(['tags', "categories"])->get();
+            $products = Product::all();
             return view('website.product.index'); 
 
         }catch(\Exception $e){
             return response()->json([
-                "error" => "
-                    Problem when requesting the resource
-                "
+                "error" => "Problem when requesting the resource"
             ], 500);
         }
     }

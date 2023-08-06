@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('short_desc');
             $table->longText('long_desc');
-            $table->strng('published');
+            $table->string('published');
             $table->string('folder');
             $table->string('thumb');
         });

@@ -120,7 +120,7 @@ hr {
 
 .form_container{
     padding-top: 100px !important;
-    padding-right: 130px !important;
+    /* padding-right: 130px !important; */
 }
 
 .form_container h3 {
@@ -233,3 +233,13 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 .sm-form-control.error { border-color: #E42C3E; }
 
 
+
+@media only screen and (min-width: 1200px){
+
+	.form_container{
+		padding-top: 100px !important;
+		padding-right: 130px !important;
+	}
+
+	
+}

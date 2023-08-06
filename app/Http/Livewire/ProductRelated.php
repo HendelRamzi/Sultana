@@ -11,7 +11,7 @@ class ProductRelated extends Component
 
     public $products ; 
 
-
+    public $prod; 
 
     public function mount(){
         $this->products = Product::take(4)->get(); 

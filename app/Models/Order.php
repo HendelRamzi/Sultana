@@ -9,7 +9,8 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'code', "client_id", "status_id","remarque"
+        'code', "client_id", "status_id","remarque","commune_id",
+        "frai_livraison","type_livraison"
     ]; 
 
     public function client(){
@@ -22,5 +23,9 @@ class Order extends Model
 
     public function products(){
         return $this->belongsToMany(Product::class); 
+    }
+
+    public function commune(){
+        return $this->belongsTo(Commune::class); 
     }
 }

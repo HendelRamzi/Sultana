@@ -73,9 +73,11 @@ Route::get('/', function () {
     // les produits
     $products = Product::all(); 
     $collections = Collection::all();
+    // dd($collections[0]->categories);
     if(count($products) > 5){
         $banner_products = $products->slice(0,5);
     }
+
 
 
 
@@ -118,7 +120,15 @@ Route::get('checkout', [CartController::class, "checkout"])
 ->name('checkout'); 
 
 
-
+Route::get('confirmation/{order}', function($order){
+    // get the order 
+    try{
+        $order  = Order::where("code", $order)->first(); 
+        return view('website.cart.confirmation');
+    }catch(\Exception $e){
+        // Handele the error here
+    }
+})->name('website.cart.confirmation');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

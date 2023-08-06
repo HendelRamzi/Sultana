@@ -151,7 +151,7 @@
         <div class="modal-body">
             <label for="cat_name">Nom de la categorie</label>
             <input type="text" id="cat_name" class="form-control" wire:model.defer="cat.name">
-            <label for="cat_desc">Nom de la categorie</label>
+            <label for="cat_desc">Description de la categorie</label>
             <input type="text" id="cat_desc" class="form-control" wire:model.defer="cat.desc">
             <label for="cat_collection">Selectionnez la collection</label>
             <select wire:model.defer="cat.collection_id" id="cat_collection" class="form-control">

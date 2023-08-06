@@ -55,7 +55,7 @@
 
 
 {{-- Put in livewire componenet --}}
-@livewire('product-related')
+@livewire('product-related', ['prod' => $product])
 
 
 

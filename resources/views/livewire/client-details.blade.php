@@ -44,7 +44,7 @@
                             <div class="col-6">
                                 <h6 style="font-weight: bold">Commune</h6>
                                 <p>
-                                    {{ $client->commune }}
+                                    {{ $client->commune->nom }}
                                 </p>
                             </div>
                             <div class="col-6">
@@ -121,12 +121,33 @@
                                             <a href="{{route('admin.orders.details', ['id' => $order->id])}}">{{ $order->code }}</a>
                                     </label>
                                 </td>
-                                @if($order->status->name)
-                                <td>
-                                    <span class="badge bg-primary py-2">
-                                        {{ $order->status->name }}
-                                    </span>
-                                </td>
+                                @if($order->status->name == "placer")
+                                    <td>  
+                                        <span class="badge bg-info text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "en cours")
+                                    <td>  
+                                        <span class="badge bg-primary text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "retour")
+                                    <td>  
+                                        <span class="badge bg-danger text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
+                                @endif
+                                @if($order->status->name == "terminer")
+                                    <td>  
+                                        <span class="badge bg-success text-dark">
+                                            {{ $order->status->name }}
+                                        </span>
+                                    </td>
                                 @endif
                                 <td>{{ count($order->products) }} products</td>
                                 @if($order->remarque)

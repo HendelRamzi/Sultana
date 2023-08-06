@@ -143,7 +143,7 @@ body{
 }
 
 .valeur-img {
-    position: absolute;
+    /* position: absolute;   */
     background-color: white;
     top: -50px;
     padding: 1.5rem;
@@ -209,3 +209,18 @@ body{
 	border-color: #f68773 ;
     background-color: #f68773;
 }
+
+
+
+
+
+@media only screen and (min-width: 1200px){
+    .valeur-img {
+        position: absolute;
+        background-color: white;
+        top: -50px;
+        padding: 1.5rem;
+    }
+}
+
+

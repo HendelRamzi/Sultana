@@ -11,12 +11,18 @@ class Client extends Model
     protected $fillable = [
         'nom', "prenom", "email",
         "phone", "adress",
-        "Commune", "ville"
+        "commune_id", "ville"
     ];
 
 
     public function orders(){
         return $this->hasMany(Order::class); 
+    }
+
+
+
+    public function commune(){
+        return $this->belongsTo(Commune::class); 
     }
 
 }

@@ -47,7 +47,7 @@
                             <div class="col-6">
                                 <h6 style="font-weight: bold">Commune</h6>
                                 <p>
-                                    {{ $client->commune }}
+                                    {{ $client->commune->nom }}
                                 </p>
                             </div>
                             <div class="col-6">
@@ -93,16 +93,52 @@
                             <div class="col-6">
                                 <h6 style="font-weight: bold">Status de la commande</h6>
                                 <p>
-                                    @if($order->status->name == "placed")
-                                        <span class="badge bg-primary p-2">
-                                            {{ $order->status->name }}
-                                        </span>
+                                    @if($order->status->name == "placer")
+                                        <td>  
+                                            <span class="badge bg-info text-dark">
+                                                {{ $order->status->name }}
+                                            </span>
+                                        </td>
                                     @endif
                                     @if($order->status->name == "en cours")
-                                    <span class="badge bg-info p-2">
-                                        {{ $order->status->name }}
-                                    </span>
-                                @endif
+                                        <td>  
+                                            <span class="badge bg-primary text-dark">
+                                                {{ $order->status->name }}
+                                            </span>
+                                        </td>
+                                    @endif
+                                    @if($order->status->name == "retour")
+                                        <td>  
+                                            <span class="badge bg-danger text-dark">
+                                                {{ $order->status->name }}
+                                            </span>
+                                        </td>
+                                    @endif
+                                    @if($order->status->name == "terminer")
+                                        <td>  
+                                            <span class="badge bg-success text-dark">
+                                                {{ $order->status->name }}
+                                            </span>
+                                        </td>
+                                    @endif
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <h6 style="font-weight: bold">La commune de destination</h6>
+                                <p>
+                                    {{ $order->commune->nom }}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <h6 style="font-weight: bold">Frai de livraison</h6>
+                                <p>
+                                    {{ $order->frai_livraison }} da
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <h6 style="font-weight: bold">Type de livraison</h6>
+                                <p>
+                                    {{ $order->type_livraison }}
                                 </p>
                             </div>
                             <div class="col-6">
@@ -161,7 +197,7 @@
                                             <img class="img-fluid" src="{{asset('storage/products/thumbnail/'.$product->folder."/".$product->thumb)}}" alt="">
                                         </div>
                                         <div class="" style="max-width: 10ch; text-align: center">
-                                            <a href="">{{ $product->name }}</a>
+                                            <a>{{ $product->name }}</a>
                                         </div>
                                     </label>
                                 </td>

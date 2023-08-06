@@ -7,7 +7,6 @@
             <h1>Checkout</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('website.home')}}">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{route('products.index')}}">Nos produits</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Checkout</li>
             </ol>
         </div>
@@ -46,10 +45,28 @@
 									<input type="text" wire:model="client.ville" placeholder="Entrez votre ville" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
 								</div>
 
-                                <div class="col-12 form-group  mb-4">
+                                {{-- <div class="col-12 form-group  mb-4">
 									<label for="billing-form-city">Commune</label>
-									<input type="text" wire:model="client.commune" placeholder="Entrez votre Commune" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
-								</div>
+									<input type="text"  placeholder="Entrez votre Commune" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
+								</div> --}}
+
+                                <div class="col-12 form-group  mb-4">
+									<label for="commune">Commune</label>
+                                    <select name="" id="commune" class="sm-form-control" wire:model="selected_commune">
+                                        <option value="">Selectionner votre commune</option>
+                                        @foreach ($communes as $commune)
+                                            <option value="{{$commune->id}}">{{  $commune->nom }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-12 form-group  mb-4 ">
+                                    <label>Selectionnez le type de livraison:</label><br>
+                                    <input type="radio" id="tarif_domicile" name="livraison_type" wire:model="livraison_type" value="tarif_domicile">
+                                    <label for="tarif_domicile" class="me-3">A domicile</label>
+                                    <input type="radio" id="trarif_desk" name="livraison_type" wire:model="livraison_type" value="tarif_desk">
+                                    <label for="trarif_desk">stop-desk</label><br>
+                                </div>
 
 								<div class="col-12 form-group mb-4">
 									<label for="billing-form-address">Address:</label>
@@ -73,7 +90,7 @@
 
 							</div>
 						</div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 pt-5 pt-md-0">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4>Votre commande</h4>
@@ -136,7 +153,7 @@
                                                     </td>
         
                                                     <td class="cart-product-name">
-                                                        <span class="amount">Free Delivery</span>
+                                                        <span class="amount">{{ $this->frai_livraison() }} da</span>
                                                     </td>
                                                 </tr>
                                                 <tr class="cart_item">
@@ -145,7 +162,7 @@
                                                     </td>
         
                                                     <td class="cart-product-name">
-                                                        <span class="amount color lead"><strong>{{ $this->total() }} da</strong></span>
+                                                        <span class="amount color lead"><strong>{{ $this->total_livraison() }} da</strong></span>
                                                     </td>
                                                 </tr>
                                             </tbody>
