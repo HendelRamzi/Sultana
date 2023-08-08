@@ -74,10 +74,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12" style="padding: 40px 0px">
-                <div class="row">
-                    <div class="col-12 col-md-3 d-flex justify-content-center align-items-center ">
+                <div class="row d-flex justify-content-center">
+                    {{-- <div class="col-12 col-md-3 d-flex justify-content-center align-items-center ">
                         <h3>Syltana Cosmetique</h3>
-                    </div>
+                    </div> --}}
                     <div class="col-12 col-md-3">
                         <h3>Lien Rapide</h3>
                         <ul>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 d-flex justify-content-between"
+            <div class="col-12 d-flex justify-content-center"
                 style="padding: 10px 0px"
             >
                 <p>© Signature. All rights reserved 2023</p>

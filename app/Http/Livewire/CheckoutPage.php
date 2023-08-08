@@ -71,8 +71,15 @@ class CheckoutPage extends Component
                 ]); 
             }
 
+
+            // destroy the cart
+            Cart::destroy();
+
+
             // Go to the confirmation page.
-            redirect()->route('website.cart.confirmation');
+            redirect()->route('website.cart.confirmation', [
+                'order' => $order->id
+            ]);
 
 
         }catch(\Exception $error){

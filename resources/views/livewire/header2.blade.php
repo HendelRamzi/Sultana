@@ -1,5 +1,5 @@
 <div>
-    <header class="container-fluid">
+    {{-- <header class="container-fluid">
         <div class="row" >
             <div class="col-12 d-none d-lg-flex justify-content-center py-3"
                 style="background-color: #E4E4E4"
@@ -7,7 +7,7 @@
                 Sultana
             </div>
         </div>
-    </header>
+    </header> --}}
     <header class="sticky-header">
         <nav class="navbar navbar-expand-lg">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

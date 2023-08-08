@@ -121,10 +121,12 @@ Route::get('checkout', [CartController::class, "checkout"])
 
 
 Route::get('confirmation/{order}', function($order){
-    // get the order 
+    // get the order    
     try{
-        $order  = Order::where("code", $order)->first(); 
-        return view('website.cart.confirmation');
+        $order  = Order::find($order); 
+        return view('website.cart.confirmation',[
+            'order' => $order
+        ]);
     }catch(\Exception $e){
         // Handele the error here
     }
